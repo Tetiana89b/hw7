@@ -1,15 +1,14 @@
 import os
 import re
 import shutil
+import sys
 from pathlib import Path
 
-main_path = os.getcwd()
-folder_name = 'my_folder'
-folder_path = os.path.join(main_path, folder_name)
-if os.path.exists(folder_path):
-    print('The folder exists.')
+if len(sys.argv) > 1:
+    main_path = sys.argv[1]
+    print(f"Шлях: {main_path}")
 else:
-    print('The folder does not exist.')
+    print("Шлях невірний")
 
 extensions = {
 
@@ -112,9 +111,14 @@ for root, dirs, files in os.walk(main_path):
             except:
                 print(f'{dir} - not a folder')
 
-if __name__ == "__main__":
+
+def main():
     create_folders_from_list(main_path, extensions)
     sort_files(main_path)
     remove_empty_folders(main_path)
     normalize(main_path)
     unpack(main_path, extensions)
+
+
+if __name__ == "__main__":
+    main()

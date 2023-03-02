@@ -7,6 +7,6 @@ setup(
     author='Tetiana',
     packages=find_namespace_packages(),
     entry_points={
-        'console_scripts': ['clean-folder = clean_folder.clean_folder.clean:main']
+        'console_scripts': ['clean-folder = clean_folder.clean:main']
     }
 )
